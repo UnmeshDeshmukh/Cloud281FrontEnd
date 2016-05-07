@@ -21,7 +21,7 @@ exports.addProductIdToRedis = function(req, res) {
 	
 	console.log(httpcall.getBody('utf8'));
 	var json_responses = {"Status" : "success"};
-	cassandra.log("debug", "added " + product + " to cart for user " + email);
+//	cassandra.log("debug", "added " + product + " to cart for user " + email);
 	res.send(json_responses);
 }
 

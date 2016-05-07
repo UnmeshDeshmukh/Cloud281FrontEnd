@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
@@ -17,7 +12,6 @@ var express = require('express')
 var app = express();
 var bodyParser = require('body-parser');
 var session = require('client-sessions');
-// all environments
 
 app.use(session({   
 	  
@@ -73,6 +67,7 @@ app.get('/TeesProducts',productsrender.renderMenTeesPage);
 
 app.post('/addProductIdToRedis',redis.addProductIdToRedis);
 app.get('/getAllProductsInCart',redis.getAllProductsInCart);
+
 app.get('/checkout',redis.checkout);
 
 

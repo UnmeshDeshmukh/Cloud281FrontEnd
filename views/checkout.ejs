@@ -156,13 +156,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="news-letter">
 			<div class="container">
 				<div class="join">
-					<h6>JOIN OUR MAILING LIST</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
-					</div>
+					<h6>RECOMMENDATIONS</h6>
+					<div  align="center">
+						<div class="cart-gd">
+			 			<div class="cart-header" align="center">
+				 			<div class="cart-sec simpleCart_shelfItem">						
+					   			<div class="cart-item-info" align="center">
+							   		<table class="table table-striped table-bordered" align="center">
+		               					<thead>
+				                  			<tr>                  
+				                     		<th>Name</th>
+				                     		<th>Image</th>
+				                     		<th>Catagory</th>
+				                     		<th>SubCatagory</th>				                     		
+				                  			</tr>
+		               					</thead>
+				               			<tbody>
+				                  		<tr ng-repeat="item in recommendationList">                  
+				                     		<td>{{ item.productName }}</td>
+				                     		<td><img ng-src="{{ item.imageUrl }}" height="60" width="60"></td>
+				                     		<td>{{ item.productCatagory }}</td>
+				               				<td>{{ item.productSubCatagory }}</td>				               				
+				               			</tr>
+				               			</tbody>
+		            				</table>						
+				        		</div>					        
+					   		</div>											
+				  </div>
+			 </div>
+		</div>					</div>
 					<div class="clearfix"> </div>
 				</div>
 			</div>
@@ -250,6 +272,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						this.productSubCatagory = productSubCatagory;
 						this.price = price;
 				}
+				
+
 
 
 				$http({
@@ -259,8 +283,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 $scope.shoppingCart = result.data;	 
 					 $scope.shopping_count = result.data.length;	
 					 console.log("Get All Shopping Cart");
+					 if (result.data.length > 0) {
+					 	$scope.getRecommendation(result.data[0].product_id);
+					 }
 				}).error(function(data){				
 				});
+
+				$scope.getRecommendation = function(productId) {
+ 					 $http({
+						method: 'POST',
+						url: '/getRecommendations',
+						data: { "productId" : productId}
+					 }).success(function(result){
+					 	$scope.recommendationList = result.data;
+					 }).error(function(data){				
+					 });
+
+				}											
 
 				$scope.placeOrder = function() {
 					 $scope.shoppingCart = "";	 

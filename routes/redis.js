@@ -8,7 +8,7 @@ var cassandra = require("./cassandra");
 exports.addProductIdToRedis = function(req, res) {	
 	var email = req.session.email;	
 	var product = req.param("productId");
-	if (email == "undefined") {
+	if (email === undefined) {
 		email = "jagrutipatil32@gmail.com";
 	}
 	
@@ -27,16 +27,12 @@ exports.addProductIdToRedis = function(req, res) {
 
 exports.deleteAllFromCart = function(req, res) {	
 	var email = req.session.email;	
-	var product = req.param("productId");
-	if (email == "undefined") {
+	if (email === undefined) {
 		email = "jagrutipatil32@gmail.com";
 	}
 	
-	console.log("Email: "+ email + " " + product);
-	var httpcall = request('POST', 'http://team4praj-env.us-west-2.elasticbeanstalk.com/deleteAllFromCart', {
-		  json: { username: email,
-			  	  productId: product
-			  }
+	var httpcall = request('POST', 'http://team4praj-env.us-west-2.elasticbeanstalk.com/deleteAllCart', {
+		  json: { username: email}
 	});
 	
 	var json_responses = {"Status" : "success"};
@@ -49,7 +45,7 @@ exports.deleteAllFromCart = function(req, res) {
 exports.getAllProductsInCart = function(req, res) {	
 	var email = "";
 	email = req.session.email;
-	if (email == "undefined") {
+	if (email === undefined) {
 		email = "jagrutipatil32@gmail.com";
 	}
 	

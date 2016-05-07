@@ -11,6 +11,36 @@
 				}).error(function(data){
 			})			
 		}		
+		
+		$scope.getWomenTopsProducts = function(){			
+			$http({
+				method: 'GET',
+				url: '/TopsProducts',
+			}).success(function(data){	
+				$window.location.assign('/TopsProducts');																							
+				}).error(function(data){
+			})			
+		}		
+		
+		$scope.getWomenJeansProducts = function(){			
+			$http({
+				method: 'GET',
+				url: '/WomenJeansProducts',
+			}).success(function(data){	
+				$window.location.assign('/WomenJeansProducts');																							
+				}).error(function(data){
+			})			
+		}		
+		
+		$scope.getWomenDressProducts = function(){			
+			$http({
+				method: 'GET',
+				url: '/WomenDressProducts',
+			}).success(function(data){	
+				$window.location.assign('/WomenDressProducts');																							
+				}).error(function(data){
+			})			
+		}		
 	}
 	app.controller("products-controller",productController);
 }());

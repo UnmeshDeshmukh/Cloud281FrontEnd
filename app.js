@@ -8,6 +8,7 @@ var express = require('express')
   , redis = require('./routes/redis')
   , register = require('./routes/register');
   var productsrender = require('./routes/productrendering');
+  var productsRenderWomen = require('./routes/productRenderingWoman');
   
 var app = express();
 var bodyParser = require('body-parser');
@@ -83,6 +84,19 @@ app.post('/addProductIdToRedis',redis.addProductIdToRedis);
 app.get('/getAllProductsInCart',redis.getAllProductsInCart);
 
 app.get('/checkout',redis.checkout);
+
+
+
+app.get('/getWomenTopsProducts',productsRenderWomen.getWomenTopsProducts);
+app.get('/TopsProducts',productsRenderWomen.renderWomenTopsPage);
+
+app.get('/getWomenJeansProducts',productsRenderWomen.getWomenJeansProducts);
+app.get('/WomenJeansProducts',productsRenderWomen.renderWomenJeansPage);
+
+app.get('/getWomenDressProducts',productsRenderWomen.getWomenDressProducts);
+app.get('/WomenDressProducts',productsRenderWomen.renderWomenDressPage);
+
+
 
 
 app.use(function(req, res, next) {

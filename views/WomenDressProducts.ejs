@@ -549,7 +549,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						method: 'POST',
 						url: '/addProductIdToRedis',
 						data : {
-							"productId" : products._id
+							"productId" : products.product_id
 						}
 					  }).success(function(data){	
 							console.log("Added Product" + products.productName);

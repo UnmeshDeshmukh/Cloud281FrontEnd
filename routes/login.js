@@ -52,12 +52,12 @@ exports.login = function(req,res){
         }, function(err, result) {
             // render on success
             if (!err) {
-            	cassandra.log("debug", "User Logged In Successfully");
+            	cassandra.log("debug", "User "+ email+" Registered Successfully");
             	res.end(result);           	  
             }
             // render or error
             else {
-            	cassandra.log("error", "User LogIn Failed");
+            	cassandra.log("error", "User "+ email+"LoggedIn Failed");
                 res.end('An Error Occurred !!');
                 console.log(err);
             }
@@ -72,7 +72,7 @@ exports.login = function(req,res){
 		console.log("Sync call in Login");
 		console.log(httpcall.getBody('utf8'));		
 		req.session.email = email;
-		cassandra.log("debug", "User Logged In Successfully");
+		cassandra.log("debug", "User "+ email+" LoggedIn Successfully");
 		var json_responses = {"Status" : "success","JsonData" : httpcall.getBody('utf8')};
 		res.send(json_responses);
 	}
@@ -108,7 +108,7 @@ exports.logout = function(req, res) {
     ejs.renderFile('./views/index.ejs', function(err, result) {
         // render on success
         if (!err) {
-        	cassandra.log("debug", "User Logged Out");
+        	cassandra.log("debug", "User "+ email+" Logged out");
             res.end(result);
         }
         // render or error

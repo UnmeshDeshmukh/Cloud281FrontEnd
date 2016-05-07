@@ -2,6 +2,7 @@
 	var app = angular.module("productsApp",[]);
 	
 	var productController = function($scope, $http, $window){
+		//MEN
 		$scope.getMenTeesProducts = function(){			
 			$http({
 				method: 'GET',
@@ -11,6 +12,30 @@
 				}).error(function(data){
 			})			
 		}		
+		
+		$scope.getMenJeansProducts = function(){			
+			$http({
+				method: 'GET',
+				url: '/JeansProducts',
+			}).success(function(data){	
+				$window.location.assign('/JeansProducts');																							
+				}).error(function(data){
+			})			
+		}	
+		
+		$scope.getMenHoodsProducts = function(){			
+			$http({
+				method: 'GET',
+				url: '/HoodsProducts',
+			}).success(function(data){	
+				$window.location.assign('/HoodsProducts');																							
+				}).error(function(data){
+			})			
+		}	
+		
+		
+		//WOMEN
+		
 		
 		$scope.getWomenTopsProducts = function(){			
 			$http({

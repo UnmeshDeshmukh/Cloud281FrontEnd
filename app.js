@@ -4,6 +4,7 @@ var express = require('express')
   , http = require('http')
   , index = require('./routes/index')
   , path = require('path')
+  , neo4j = require('./routes/neo4j')
   , login = require('./routes/login')
   , redis = require('./routes/redis')
   , register = require('./routes/register');
@@ -85,7 +86,7 @@ app.get('/getAllProductsInCart',redis.getAllProductsInCart);
 app.get('/deleteAllFromCart',redis.deleteAllFromCart);
 app.get('/checkout',redis.checkout);
 
-
+app.post('/getRecommendations', neo4j.getRecommendations);
 
 app.get('/getWomenTopsProducts',productsRenderWomen.getWomenTopsProducts);
 app.get('/TopsProducts',productsRenderWomen.renderWomenTopsPage);

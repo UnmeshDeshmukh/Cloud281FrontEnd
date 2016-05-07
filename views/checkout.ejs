@@ -23,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="stylesheets/flexslider.css" type="text/css" media="screen" />
 </head>
-<body>
+<body ng-app="CheckoutApp" ng-controller="Checkout-controller">
 	<!-- header-section-starts -->
 	<div class="header">
 		<div class="header-top-strip">
@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 		</div>
 		<!-- checkout -->
-<div class="cart-items">
+<div class="cart-items" >
 	<div class="container">
 	<div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
@@ -206,101 +206,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
-			 <h2>MY SHOPPING BAG (3)</h2>
-		<div class="cart-gd">
-				<script>$(document).ready(function(c) {
-					$('.close1').on('click', function(c){
-						$('.cart-header').fadeOut('slow', function(c){
-							$('.cart-header').remove();
-						});
-						});	  
-					});
-			   </script>
-			 <div class="cart-header">
-				 <div class="close1"> </div>
-				 <div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-							 <img src="images/l1.jpg" class="img-responsive" alt="">
-						</div>
-					   <div class="cart-item-info">
-						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-						<ul class="qty">
-							<li><p>Min. order value:</p></li>
-							<li><p>FREE delivery</p></li>
-						</ul>
-							 <div class="delivery">
-							 <p>Service Charges : $10.00</p>
-							 <span>Delivered in 1-1:30 hours</span>
-							 <div class="clearfix"></div>
-				        </div>	
-					   </div>
-					   <div class="clearfix"></div>
-											
+			 <h2>MY SHOPPING BAG ({{shopping_count}})</h2>
+			 <div class="cart-gd">
+			 <div class="cart-header" align="center">
+				 <div class="cart-sec simpleCart_shelfItem">						
+					   <div class="cart-item-info" align="center">
+					   	<table class="table table-striped table-bordered" align="center">
+               			<thead>
+                  			<tr>                  
+                     		<th>Name</th>
+                     		<th>Catagory</th>
+                     		<th>SubCatagory</th>
+                     		<th>price</th>
+                  			</tr>
+               			</thead>
+               			<tbody>
+                  		<tr ng-repeat="item in shoppingCart">                  
+                     		<td>{{ item.productName }}</td>
+                     		<td>{{ item.productCatagory }}</td>
+               				<td>{{ item.productSubCatagory }}</td>
+               				<td>{{ item.price }}</td>
+               			</tr>
+               			</tbody>
+            			</table>						
+				        </div>					        
+					   </div>											
 				  </div>
 			 </div>
-			 <script>$(document).ready(function(c) {
-					$('.close2').on('click', function(c){
-							$('.cart-header2').fadeOut('slow', function(c){
-						$('.cart-header2').remove();
-					});
-					});	  
-					});
-			 </script>
-			 <div class="cart-header2">
-				 <div class="close2"> </div>
-				  <div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-							 <img src="images/l2.jpg" class="img-responsive" alt="">
-						</div>
-					   <div class="cart-item-info">
-						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-						<ul class="qty">
-							<li><p>Min. order value:</p></li>
-							<li><p>FREE delivery</p></li>
-						</ul>
-							 <div class="delivery">
-							 <p>Service Charges : $10.00</p>
-							 <span>Delivered in 3-3:30 hours</span>
-							 <div class="clearfix"></div>
-				        </div>	
-					   </div>
-					   <div class="clearfix"></div>
-											
-				  </div>
-			  </div>
-			  <script>$(document).ready(function(c) {
-					$('.close3').on('click', function(c){
-							$('.cart-header3').fadeOut('slow', function(c){
-						$('.cart-header3').remove();
-					});
-					});	  
-					});
-			 </script>
-			  <div class="cart-header3">
-				 <div class="close3"> </div>
-				  <div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-							 <img src="images/l3.jpg" class="img-responsive" alt="">
-						</div>
-					   <div class="cart-item-info">
-						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-						<ul class="qty">
-							<li><p>Min. order value:</p></li>
-							<li><p>FREE delivery</p></li>
-						</ul>
-							 <div class="delivery">
-							 <p>Service Charges : $10.00</p>
-							 <span>Delivered On Tomorrow</span>
-							 <div class="clearfix"></div>
-				        </div>	
-					   </div>
-					   <div class="clearfix"></div>
-											
-				  </div>
-			  </div>
 		</div>
 	</div>
 </div>
+				<div class="join" align="center">					
+					<div class="sub-left-right">
+						<form>							
+							<input type="submit" value="Pleace Order" ng-click="placeOrder()"/>
+						</form>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<br>
 
 <!-- //checkout -->	
 		<div class="news-letter">
@@ -384,5 +328,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  </div>
 		</div>
 		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script>
+			var app = angular.module('CheckoutApp', []);
+			app.controller("Checkout-controller", checkoutController);
+
+			checkoutController.$inject = [ '$scope', '$http', '$window' ];
+			function checkoutController($scope, $http, $window) {
+				$scope.shopping_count = "";
+				
+				function item(id, productName, productCatagory, productSubCatagory, price) {
+						this.id = id;
+						this.productName = productName;
+						this.productCatagory = productCatagory;
+						this.productSubCatagory = productSubCatagory;
+						this.price = price;
+				}
+
+
+				$http({
+					method: 'GET',
+					url: '/getAllProductsInCart'
+				}).success(function(result){
+					 $scope.shoppingCart = result.data;	 
+					 $scope.shopping_count = result.data.length;	
+					 console.log("Get All Shopping Cart");
+				}).error(function(data){				
+				});
+
+				$scope.placeOrder = function() {
+					 $scope.shoppingCart = "";	 
+					 $scope.shopping_count = "";	
+					 alert("Order Placed Successfully");
+				}											
+
+			}		
+		</script>
 </body>
 </html>

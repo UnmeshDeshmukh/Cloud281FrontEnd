@@ -49,11 +49,9 @@ app.get('/users', user.list);
 app.get('/index',index.index);
 app.get('/account',index.account);
 app.get('/contact',index.contact);
-app.get('/checkout',index.checkout);
 app.get('/products',index.products);
 app.get('/productsNew',index.productsNew);
 app.get('/MenProducts',index.MenProducts);
-//app.get('/TeesProducts',index.TeesProducts);
 app.get('/womenproducts',index.womenproducts);
 app.get('/kidproducts',index.kidproducts);
 app.get('/register',index.register);
@@ -73,8 +71,10 @@ app.get('/logout',login.logout);
 app.get('/getProductsMenTees',productsrender.getProductsMenTees);
 app.get('/TeesProducts',productsrender.renderMenTeesPage);
 
-
 app.post('/addProductIdToRedis',redis.addProductIdToRedis);
+app.get('/getAllProductsInCart',redis.getAllProductsInCart);
+app.get('/checkout',redis.checkout);
+
 
 app.use(function(req, res, next) {
 	  res.header("Access-Control-Allow-Origin", "*");

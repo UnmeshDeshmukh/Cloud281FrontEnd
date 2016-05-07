@@ -9,7 +9,7 @@
 				data: {"email" : $scope.email, "password" : $scope.password}
 			}).success(function(data){
 																
-					$window.location.assign('/getData');
+					$window.location.assign('/MenProducts');
 					alert("You have logged in successfully !!!");
 			}).error(function(data){
 				alert("Error while logging in!!!");

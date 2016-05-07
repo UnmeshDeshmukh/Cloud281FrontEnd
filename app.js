@@ -65,6 +65,20 @@ app.get('/logout',login.logout);
 app.get('/getProductsMenTees',productsrender.getProductsMenTees);
 app.get('/TeesProducts',productsrender.renderMenTeesPage);
 
+
+app.get('/getProductsMenJeans',productsrender.getProductsMenJeans);
+app.get('/JeansProducts',productsrender.renderMenJeansPage);
+
+app.get('/getProductsMenHoods',productsrender.getProductsMenHoods);
+app.get('/HoodsProducts',productsrender.renderMenHoodsPage);
+
+
+app.get('/getProductsKidShorts',productsrender.getProductsKidShorts);
+app.get('/ShortsProducts',productsrender.renderKidShortsPage);
+
+app.get('/getProductsKidShirt',productsrender.getProductsKidShirt);
+app.get('/ShirtProducts',productsrender.renderKidShirtPage);
+
 app.post('/addProductIdToRedis',redis.addProductIdToRedis);
 app.get('/getAllProductsInCart',redis.getAllProductsInCart);
 

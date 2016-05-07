@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+<head >
 
 <title>Eshop a Flat E-Commerce Website</title>
 
@@ -38,23 +38,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="stylesheets/flexslider.css" type="text/css" media="screen" />
 </head>
-<body ng-app="productsApp" ng-controller="products-controller">
+<body ng-app="WomenDressProductsApp" ng-controller="Women-Dress-products-controller">
 	<!-- header-section-starts -->
 	<div class="header">
 		<div class="header-top-strip">
 			<div class="container">
 				<div class="header-top-left">
 					<ul>
-						<li><a href="/account"><span class="glyphicon glyphicon-user"> </span>Login</a></li>
-						<li><a href="/register"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>			
+						<li><a href="/logout"><span class="glyphicon glyphicon-user"> </span>Logout</a></li>
+						<!-- <li><a href="/register"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li> -->			
 					</ul>
 				</div>
 				<div class="header-right">
 						<div class="cart box_1">
 							<a href="/checkout">
-								<h3> <span class="simpleCart_total"> $0.00  </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)<img src="images/bag.png" alt=""></h3>
+								<h3> <span class="simpleCart_total">   </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> </span>)<img src="images/bag.png" alt=""></h3>
 							</a>	
-						
+							<p style = "color: #FFFFFF">Name: {{data}} </p>
 							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
 							<div class="clearfix"> </div>
 						</div>
@@ -88,30 +88,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
 		            <ul class="dropdown-menu multi-column columns-3">
 			            <div class="row">
-				           
-				            <div class="col-sm-6">
+				            <div class="col-sm-4">
+					           
+				            </div>
+				            <div class="col-sm-4">
 					            <ul class="multi-column-dropdown">
 									<h6>CLOTHING</h6>
-									<form>
-						            <li><a href="#" ng-click="getMenTeesProducts();"> Tees</a></li>
-<<<<<<< HEAD
-						            <li><a href="/MenProducts">Jeans</a></li>
-						            <li><a href="/MenProducts">Hoodies</a></li></form>
-						           
-=======
-						            <li><a href="#" ng-click="getMenJeansProducts();">Jeans</a></li>
-						            <li><a href="#" ng-click="getMenHoodsProducts();">Hoodies</a></li></form>
-						            <!--<li><a href="/products">Jeans</a></li>
-						            <li><a href="/products">Shorts & 3/4th</a></li>
-						            <li><a href="/products">Formal Shirts</a></li>
-						            <li><a href="/products">Formal Trousers</a></li>
-						            <li><a href="/products">Suits & Blazers</a></li>
-						            <li><a href="/products">Track Wear</a></li>
-						            <li><a href="/products">Inner Wear</a></li>-->
->>>>>>> 9a44141d128fc997055195cbf3cf141bb4d11736
+						            <li><a href="/products">Tees</a></li>
+						            <li><a href="/products">Jeans</a></li>
+						            <li><a href="/products">Hoods</a></li>
+						            
 					            </ul>
 				            </div>
-				           
+				            <div class="col-sm-4">
+					            
+				            </div>
 							<div class="clearfix"></div>
 			            </div>
 		            </ul>
@@ -121,19 +112,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		            <ul class="dropdown-menu multi-column columns-3">
 			            <div class="row">
 				            <div class="col-sm-4">
-					         
+					           
 				            </div>
 				            <div class="col-sm-4">
 					            <ul class="multi-column-dropdown">
 									<h6>CLOTHING</h6>
-						            <li><a href="#" ng-click="getWomenTopsProducts();">Tops</a></li>
-						            <li><a href="#" ng-click="getWomenJeansProducts();">Jeans</a></li>
-						            <li><a href="#" ng-click="getWomenDressProducts();">Dress</a></li>
-						          
-					            </ul>
+						            <li><a href="/products">Tops</a></li>
+						            <li><a href="/products">Jeans</a></li>
+						            <li><a href="/products">Dress</a></li>
+						        </ul>
 				            </div>
-				           <div class="col-sm-4">
-					           
+				            <div class="col-sm-4">
+					            
 				            </div>
 							<div class="clearfix"></div>
 			            </div>
@@ -146,13 +136,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				            <div class="col-sm-6">
 					            <ul class="multi-column-dropdown">
 									<h6>NEW IN</h6>
-						            <li><a href="/kidproducts">Shorts</a></li>
-						            <li><a href="/kidproducts">Shirts</a></li>
-						            
+						            <li><a href="/products">Shorts</a></li>
+						            <li><a href="/products">Shirts</a></li>
+					
 					            </ul>
 				            </div>
 				            <div class="col-sm-6">
-					           
+					             
 				            </div>
 							<div class="clearfix"></div>
 			            </div>
@@ -275,15 +265,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/p1.jpg" class="img-responsive" alt=""/>
+									<img ng-src="{{products[0].imageUrl}}" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">perspiciatis</p>
+										 <p class="title">{{products[0].productName}}</p>
 									   </div>
-									   <div class="pricey"><span class="item_price">$259.00</span></div>
+									   <div class="pricey"><span class="item_price">${{products[0].price}}</span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>
@@ -291,9 +281,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                      </div>
 		                    </a>
 							<div class="cbp-vm-details">
-								Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
+								
 							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
+							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" ng-click="addToCart(products[0]);">Add to cart</a>
 							</div>
 						</li>
 						<li>
@@ -302,15 +292,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/p2.jpg" class="img-responsive" alt=""/>
+									<img ng-src="{{products[1].imageUrl}}" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">Great Explorer</p>
+										 <p class="title">{{products[1].productName}}</p>
 									   </div>
-									   <div class="pricey"><span class="item_price">$189.00</span></div>
+									   <div class="pricey"><span class="item_price">${{products[1].price}}</span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>
@@ -318,36 +308,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                      </div>
 							 </a>
 							<div class="cbp-vm-details">
-								Wattle seed bunya nuts spring onion okra garlic bitterleaf zucchini.
+								
 							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="/single">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p3.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Similique Sunt</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$699.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
+							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" ng-click="addToCart(products[1]);">Add to cart</a>
 							</div>
 						</li>
 						<li>
@@ -356,15 +319,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/p4.jpg" class="img-responsive" alt=""/>
+									<img ng-src="{{products[2].imageUrl}}" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">Shrinking</p>
+										 <p class="title">{{products[2].productName}}</p>
 									   </div>
-									   <div class="pricey"><span class="item_price">$599.00</span></div>
+									   <div class="pricey"><span class="item_price">${{products[2].price}}</span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>
@@ -372,9 +335,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                      </div>
 							</a>
 							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
+								
 							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
+							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" ng-click="addToCart(products[2]);">Add to cart</a>
 							</div>
 						</li>
 						<li>
@@ -383,15 +346,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/p5.jpg" class="img-responsive" alt=""/>
+									<img ng-src="{{products[3].imageUrl}}" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">Perfectly Simple</p>
+										 <p class="title">{{products[3].productName}}</p>
 									   </div>
-									   <div class="pricey"><span class="item_price">$459.00</span></div>
+									   <div class="pricey"><span class="item_price">${{products[3].price}}</span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>
@@ -399,119 +362,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                      </div>
 							</a>
 							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
+								
 							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="/single">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p6.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Equal Blame</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$119.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
+							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" ng-click="addToCart(products[3]);">Add to cart</a>
 							</div>
 						</li>
-						<li>
-							<a class="cbp-vm-image" href="/single">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p7.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Neque Porro</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$289.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="/single">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p8.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Perfectly Simple</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$169.12</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="/single">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p9.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Praising Pain</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$199.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-								<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
+						
 					</ul>
 				</div>
 				<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
@@ -665,11 +521,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src="images/cards.jpg" alt="" />
 		  </div>
 		  <div class="copyright text-center">
-			
+				
 		  </div>
 		</div>
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-		<script src="/scripts/products-controller.js"></script>
+		<script>
+			var app = angular.module('WomenDressProductsApp', []);
+			app.controller("Women-Dress-products-controller", womenDressController);
+
+			womenDressController.$inject = [ '$scope', '$http', '$window' ];
+			function womenDressController($scope, $http, $window) {
+				$scope.data = "";
+				$scope.products = "";
+				$http({
+					method: 'GET',
+					url: '/getWomenDressProducts'
+				}).success(function(result){																				
+					// $scope.data = result;
+					$scope.data = "Jagruti";
+					$scope.products = result;
+				}).error(function(data){				
+				});	
+				
+				$scope.addToCart = function(products){			
+					$http({
+						method: 'POST',
+						url: '/addProductIdToRedis',
+						data : {
+							"productId" : products._id
+						}
+					  }).success(function(data){	
+							console.log("Added Product" + products.productName);
+					  }).error(function(data){
+					})			
+				};	
+						
+			}		
+		</script>
 </body>
 </html>

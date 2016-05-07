@@ -70,4 +70,50 @@ exports.renderMenHoodsPage=function(req,res){
 			res.end(result);
 		}
 	});
+		
+};
+
+exports.getProductsKidShorts = function(req, res) {
+	var email = req.session.email;	
+	var str='http://team4praj-env.us-west-2.elasticbeanstalk.com/getProducts/KIDS/Shorts';
+	var httpcall = request('GET', str, {
+		 'headers': {
+			    'user-agent': 'example-user-agent'
+			  }
+	});
+			
+	console.log(httpcall.getBody('utf8'));
+	res.send(httpcall.getBody('utf8'));
+}
+
+
+exports.renderKidShortsPage=function(req,res){
+	ejs.renderFile("./views/ShortsProducts.ejs", function(err, result) {
+		if (!err) {			
+			res.end(result);
+		}
+	});	
+};
+
+
+exports.getProductsKidShirt = function(req, res) {
+	var email = req.session.email;	
+	var str='http://team4praj-env.us-west-2.elasticbeanstalk.com/getProducts/KIDS/Shirts';
+	var httpcall = request('GET', str, {
+		 'headers': {
+			    'user-agent': 'example-user-agent'
+			  }
+	});
+			
+	console.log(httpcall.getBody('utf8'));
+	res.send(httpcall.getBody('utf8'));
+}
+
+
+exports.renderKidShirtPage=function(req,res){
+	ejs.renderFile("./views/ShirtProducts.ejs", function(err, result) {
+		if (!err) {			
+			res.end(result);
+		}
+	});	
 };

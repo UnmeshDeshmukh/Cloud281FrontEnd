@@ -6,6 +6,7 @@ var session=require('client-sessions');
 var request = require('sync-request');
 var https = require("https");
 var http = require("http");
+var cassandra = require("./cassandra");
 
 //REGISTER A USER
 exports.signup = function(req,res){
@@ -29,7 +30,8 @@ exports.signup = function(req,res){
 		});
 		
 	console.log("Sync call in Signup");
-	console.log(httpcall.getBody('utf8'));	
+	console.log(httpcall.getBody('utf8'));
+	cassandra.log("debug", "User Registered Successfully");
 	var json_responses = {"Status" : "success","JsonData" : httpcall.getBody('utf8')};
 	res.send(json_responses);
  
@@ -50,10 +52,12 @@ exports.login = function(req,res){
         }, function(err, result) {
             // render on success
             if (!err) {
-           	  res.end(result);
+            	cassandra.log("debug", "User Logged In Successfully");
+            	res.end(result);           	  
             }
             // render or error
             else {
+            	cassandra.log("error", "User LogIn Failed");
                 res.end('An Error Occurred !!');
                 console.log(err);
             }
@@ -68,6 +72,7 @@ exports.login = function(req,res){
 		console.log("Sync call in Login");
 		console.log(httpcall.getBody('utf8'));		
 		req.session.email = email;
+		cassandra.log("debug", "User Logged In Successfully");
 		var json_responses = {"Status" : "success","JsonData" : httpcall.getBody('utf8')};
 		res.send(json_responses);
 	}
@@ -103,6 +108,7 @@ exports.logout = function(req, res) {
     ejs.renderFile('./views/index.ejs', function(err, result) {
         // render on success
         if (!err) {
+        	cassandra.log("debug", "User Logged Out");
             res.end(result);
         }
         // render or error

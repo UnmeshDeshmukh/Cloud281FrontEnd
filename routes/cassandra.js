@@ -4,6 +4,10 @@ var request = require('sync-request');
 var https = require("https");
 var http = require("http");
 
-exports.log = function(req, res){
-	  
+exports.log = function(inLevel, inMessage){	
+		var httpcall = request('POST', 'http://team4praj-env.us-west-2.elasticbeanstalk.com/log', {
+			  json: { level: inLevel,
+				  	  message: inMessage
+				  }
+		});		
 };

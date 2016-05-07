@@ -3,6 +3,7 @@ var session=require('client-sessions');
 var request = require('sync-request');
 var https = require("https");
 var http = require("http");
+var cassandra = require("./cassandra");
 
 exports.addProductIdToRedis = function(req, res) {	
 	var email = req.session.email;	
@@ -20,6 +21,7 @@ exports.addProductIdToRedis = function(req, res) {
 	
 	console.log(httpcall.getBody('utf8'));
 	var json_responses = {"Status" : "success"};
+	cassandra.log("debug", "added " + product + " to cart for user " + email);
 	res.send(json_responses);
 }
 
@@ -38,6 +40,7 @@ exports.deleteAllFromCart = function(req, res) {
 	});
 	
 	var json_responses = {"Status" : "success"};
+	cassandra.log("debug", "Order placed by user: " + email);
 	res.send(json_responses);
 }
 

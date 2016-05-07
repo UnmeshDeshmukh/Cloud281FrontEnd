@@ -360,6 +360,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 $scope.shoppingCart = "";	 
 					 $scope.shopping_count = "";	
 					 alert("Order Placed Successfully");
+ 					 $http({
+						method: 'GET',
+						url: '/deleteAllFromCart'
+					 }).success(function(result){
+					 }).error(function(data){				
+					 });
+
 				}											
 
 			}		

@@ -82,7 +82,7 @@ app.get('/ShirtProducts',productsrender.renderKidShirtPage);
 
 app.post('/addProductIdToRedis',redis.addProductIdToRedis);
 app.get('/getAllProductsInCart',redis.getAllProductsInCart);
-
+app.get('/deleteAllFromCart',redis.deleteAllFromCart);
 app.get('/checkout',redis.checkout);
 
 

@@ -31,7 +31,7 @@ exports.signup = function(req,res){
 		
 	console.log("Sync call in Signup");
 	console.log(httpcall.getBody('utf8'));
-	cassandra.log("debug", "User Registered Successfully");
+	cassandra.log("debug", "User "+ email+" Registered Successfully");
 	var json_responses = {"Status" : "success","JsonData" : httpcall.getBody('utf8')};
 	res.send(json_responses);
  

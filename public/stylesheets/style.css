@@ -1617,6 +1617,16 @@ ul.women_pagenation li a:hover{
   padding: 60px 0;
 
 }
+
+
+table#table-format{
+	width:70%;
+	margin-left: 30%;
+	margin-right: 15%;
+}
+
+
+
 .registration-form h2 {
     font-weight: 600;
     text-transform: uppercase;
